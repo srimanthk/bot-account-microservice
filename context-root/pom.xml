@@ -258,8 +258,8 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>central</id>
-			<url>http://nexus-drds-dev.app.dev.tc.ocp.vodacom.corp/repository/maven-group/</url>
+			<id>maven-public</id>
+			<url>http://nexus-drds-dev.app.dev.tc.ocp.vodacom.corp/repository/maven-public/</url>
 		</repository>
 	</repositories>
 
