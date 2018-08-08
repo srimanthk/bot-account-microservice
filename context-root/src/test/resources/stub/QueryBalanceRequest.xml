@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://www.vodacom.co.za/header/types" xmlns:typ1="http://www.vodacom.co.za/subscriber/account/types">
+   <soapenv:Header>
+      <typ:Header>
+         <!--You may enter the following 7 items in any order-->
+         <!--Optional:-->
+         <typ:ReferenceId>?</typ:ReferenceId>
+         <!--Optional:-->
+         <typ:CorrelationId>?</typ:CorrelationId>
+         <!--Optional:-->
+         <typ:ApplicationId>?</typ:ApplicationId>
+         <!--Optional:-->
+         <typ:TransactionId>?</typ:TransactionId>
+         <!--Optional:-->
+         <typ:Timestamp>?</typ:Timestamp>
+         <!--Optional:-->
+         <typ:SourceId>?</typ:SourceId>
+         <!--Optional:-->
+         <typ:BillingPlatformId>88</typ:BillingPlatformId>
+      </typ:Header>
+   </soapenv:Header>
+   <soapenv:Body>
+      <typ1:BalanceQuery>
+         <typ1:MSISDN>27825506489</typ1:MSISDN>
+        
+      </typ1:BalanceQuery>
+   </soapenv:Body>
+</soapenv:Envelope>

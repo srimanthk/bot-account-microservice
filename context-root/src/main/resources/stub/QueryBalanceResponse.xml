@@ -1,0 +1,57 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://www.vodacom.co.za/header/types" xmlns:typ1="http://www.vodacom.co.za/subscriber/account/types">
+   <soapenv:Header>
+      <typ:Header>
+         <!--You may enter the following 7 items in any order-->
+         <!--Optional:-->
+         <typ:ReferenceId>?</typ:ReferenceId>
+         <!--Optional:-->
+         <typ:CorrelationId>?</typ:CorrelationId>
+         <!--Optional:-->
+         <typ:ApplicationId>?</typ:ApplicationId>
+         <!--Optional:-->
+         <typ:TransactionId>?</typ:TransactionId>
+         <!--Optional:-->
+         <typ:Timestamp>?</typ:Timestamp>
+         <!--Optional:-->
+         <typ:SourceId>?</typ:SourceId>
+         <!--Optional:-->
+         <typ:BillingPlatformId>?</typ:BillingPlatformId>
+      </typ:Header>
+   </soapenv:Header>
+   <soapenv:Body>
+      <typ1:BalanceQueryResponse>
+         <!--Zero or more repetitions:-->
+         <typ1:BundleBalance>
+            <typ1:BundleId>?</typ1:BundleId>
+            <typ1:BundleName>?</typ1:BundleName>
+            <!--Optional:-->
+            <typ1:Description>?</typ1:Description>
+            <!--Optional:-->
+            <typ1:BundleType>?</typ1:BundleType>
+            <!--Optional:-->
+            <typ1:Balance>?</typ1:Balance>
+            <!--Optional:-->
+            <typ1:BundleSize>?</typ1:BundleSize>
+            <typ1:UoM>?</typ1:UoM>
+            <!--Optional:-->
+            <typ1:ProductName>?</typ1:ProductName>
+            <!--Optional:-->
+            <typ1:StartTime>?</typ1:StartTime>
+            <!--Optional:-->
+            <typ1:NextAllocationDate>?</typ1:NextAllocationDate>
+            <!--Optional:-->
+            <typ1:ExpiryDate>?</typ1:ExpiryDate>
+            <!--Optional:-->
+            <typ1:ForfeitableBalances>
+               <!--1 or more repetitions:-->
+               <typ1:ForfeitableBalance>
+                  <typ1:Amount>?</typ1:Amount>
+                  <typ1:ForfeitDate>?</typ1:ForfeitDate>
+               </typ1:ForfeitableBalance>
+            </typ1:ForfeitableBalances>
+            <!--Optional:-->
+            <typ1:AllTotalBalance>?</typ1:AllTotalBalance>
+         </typ1:BundleBalance>
+      </typ1:BalanceQueryResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

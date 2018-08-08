@@ -1,0 +1,74 @@
+client:
+  default-uri: http://10.128.28.98/api/v3/account/management
+  #default-uri: http://za-wiremock-stub.chatbot-dev-za.svc.cluster.local:8080/api/v3/account/management
+  user:
+    name: ChatBot
+    password: ThdZsGqPl#294M
+  stub-enabled: false
+spring:
+  application:
+    name: account-ms
+ulff:
+   kafka:
+      topic: 
+          vf.za.chatbot.stagingref.ms.ulff
+      configuration:
+         "[bootstrap.servers]":
+                10.178.187.56:9092,10.178.187.59:9092,10.178.187.52:9092
+   url-patterns: /accounts/v1/*  
+   enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        ws: TRACE 
+    com:
+      vodafone:
+        gigthree:
+         ulff:
+           kafka: DEBUG
+Configutation:
+      name: account-ms
+      packages : com.vodafone.dxl.account
+      Appenders:
+        Console:
+          - name: sysout
+            target: SYSTEM_OUT
+            PatternLayout:
+              pattern: "%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m%n"
+          - name: syserr
+            target: SYSTEM_ERR
+            PatternLayout:
+              pattern: "%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m%n"
+            Filters:
+              ThresholdFilter :
+                level: "WARN"
+                onMatch: "ACCEPT"
+        Kafka:
+          name : kafkaAppender
+          topic: vf.za.chatbot.stagingref.tomcat
+          JSONLayout:
+            complete: "true"
+            compact: "true"
+            eventEol: "true"
+            includeStacktrace: "true"
+            properties: "true"
+          Property:
+            name: "bootstrap.servers"
+            value: "10.178.187.56:9092,10.178.187.59:9092,10.178.187.52:9092"
+      Loggers:
+        Root:
+          level: INFO
+          AppenderRef:
+            - ref: sysout
+            - ref: syserr
+        #### test 1 test 2 Separate kafka log from application log
+        Logger:
+          - name: com.vodafone.dxl.account
+            level: INFO
+            AppenderRef:
+              - ref: kafkaAppender
+          - name: org.springframework
+            level: INFO
+            AppenderRef:
+              - ref: kafkaAppender

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.vodacom.co.za/subscriber/account/types" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.vodacom.co.za/subscriber/account/types" xmlns:cns="http://www.vodacom.co.za/common/types">
+  <xsd:import namespace="http://www.vodacom.co.za/common/types" schemaLocation="common.xsd"/>
+  <xsd:element name="BundleBalance" type="tns:BundleBalanceType"/>
+  <xsd:element name="SubscriberAccountManagementFault" type="tns:SubscriberAccountManagementFaultType"/>
+  <xsd:element name="BalanceQuery" type="tns:BalanceQueryType"/>
+  <xsd:element name="AllBalancesQuery" type="tns:BalanceQueryType"/>
+  <xsd:element name="BalanceQueryResponse" type="tns:BalanceQueryResponseType"/>
+  <xsd:element name="AllBalancesQueryResponse" type="tns:BalanceQueryResponseType"/>
+  <xsd:element name="PromoBundleBalancesQuery" type="tns:PromoBundleBalancesQueryType"/>
+  <xsd:element name="PromoBundleBalancesQueryResponse" type="tns:PromoBundleBalancesQueryResponseType"/>
+  <xsd:element name="PurchaseBundle" type="tns:PurchaseBundleType"/>
+  <xsd:element name="PurchaseBundleResponse" type="tns:PurchaseBundleResponseType"/>
+  <xsd:element name="PurchasePromoBundle" type="tns:PurchasePromoBundleType"/>
+  <xsd:element name="PurchasePromoBundleResponse" type="tns:PurchasePromoBundleResponseType"/>
+  <xsd:element name="MigrateBundlesToHearingImpaired" type="tns:MigrateBundlesToHearingImpairedType"/>
+  <xsd:element name="MigrateBundlesToHearingImpairedResponse" type="tns:MigrateBundlesToHearingImpairedResponseType"/>
+  <xsd:complexType name="PurchaseBundleType">
+    <xsd:sequence>
+      <xsd:element name="MSISDN" type="cns:MSISDN"/>
+      <xsd:element name="BundleCode" type="xsd:string"/>
+      <xsd:element name="Size" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="Cost" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="ActivationDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="transactionIdPrefix" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="PurchaseBundleResponseType">
+    <xsd:sequence>
+      <xsd:element name="Balance" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="Cost" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="BundleBalance" type="tns:BundleBalanceType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BundleValidityPeriodType">
+    <xsd:sequence>
+      <xsd:element name="Amount" type="xsd:long"/>
+      <xsd:element name="Units" default="D">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="Y|M|D|m|s"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MigrateBundlesToHearingImpairedType">
+    <xsd:sequence>
+      <xsd:element name="MSISDN" type="cns:MSISDN"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MigrateBundlesToHearingImpairedResponseType">
+    <xsd:sequence/>
+  </xsd:complexType>
+  <xsd:complexType name="PurchasePromoBundleType">
+    <xsd:sequence>
+      <xsd:element name="MSISDN" type="cns:MSISDN"/>
+      <xsd:element name="CampaignId" type="xsd:string"/>
+      <xsd:element name="PackageType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Size" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="Cost" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="ActivationDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="transactionIdPrefix" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType name="PurchasePromoBundleResponseType">
+    <xsd:sequence>
+      <xsd:element name="Balance" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="Cost" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BalanceQueryType">
+    <xsd:sequence>
+      <xsd:element name="MSISDN" type="cns:MSISDN"/>
+      <xsd:choice>
+        <xsd:element name="ServiceType" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="VoucherType" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="PackageName" type="xsd:string" minOccurs="0"/>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BalanceQueryResponseType">
+    <xsd:sequence>
+      <xsd:element name="BundleBalance" type="tns:BundleBalanceType" maxOccurs="unbounded" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PromoBundleBalancesQueryType">
+    <xsd:sequence>
+      <xsd:element name="MSISDN" type="cns:MSISDN"/>
+      <xsd:element name="CampaignId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PromoBundleBalancesQueryResponseType">
+    <xsd:sequence>
+      <xsd:element name="BundleBalance" type="tns:BundleBalanceType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BundleBalanceType">
+    <xsd:sequence>
+      <xsd:element name="BundleId" type="xsd:int"/>
+      <xsd:element name="BundleName" type="xsd:string"/>
+      <xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BundleType" type="tns:DefinedBundleType" minOccurs="0"/>
+      <xsd:element name="Balance" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="BundleSize" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="UoM" type="tns:UnitOfMeasureType"/>
+      <xsd:element name="ProductName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="StartTime" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="NextAllocationDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="ForfeitableBalances" type="tns:ForfeitableBalancesType" nillable="true" minOccurs="0"/>
+      <xsd:element name="AllTotalBalance" type="xsd:long" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ForfeitableBalancesType">
+    <xsd:sequence>
+      <xsd:element name="ForfeitableBalance" type="tns:ForfeitableBalanceType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ForfeitableBalanceType">
+    <xsd:sequence>
+      <xsd:element name="Amount" type="xsd:long"/>
+      <xsd:element name="ForfeitDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="UnitOfMeasureType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Kilobytes"/>
+      <xsd:enumeration value="Seconds"/>
+      <xsd:enumeration value="Megabytes"/>
+      <xsd:enumeration value="Levels"/>
+      <xsd:enumeration value="Units"/>
+      <xsd:enumeration value="Cents"/>
+      <xsd:enumeration value="Days"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DefinedBundleType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SMS"/>
+      <xsd:enumeration value="MMS"/>
+      <xsd:enumeration value="Data"/>
+      <xsd:enumeration value="Flex"/>
+      <xsd:enumeration value="Voice"/>
+      <xsd:enumeration value="Airtime"/>
+      <xsd:enumeration value="Subscription"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="SubscriberAccountManagementFaultType">
+    <xsd:sequence>
+      <xsd:element name="ErrorType" type="xsd:string"/>
+      <xsd:element name="ErrorCode" type="xsd:string"/>
+      <xsd:element name="Description" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

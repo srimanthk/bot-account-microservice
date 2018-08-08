@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.vodacom.co.za/header/types" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.vodacom.co.za/header/types">
+  <xsd:element name="Header">
+    <xsd:complexType>
+      <xsd:all>
+        <xsd:element name="ReferenceId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="CorrelationId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ApplicationId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="TransactionId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Timestamp" type="xsd:dateTime" minOccurs="0"/>
+        <xsd:element name="SourceId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="BillingPlatformId" type="xsd:string" minOccurs="0"/>
+      </xsd:all>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

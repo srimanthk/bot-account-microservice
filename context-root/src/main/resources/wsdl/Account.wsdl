@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="SubscriberAccountManagement" targetNamespace="http://www.vodacom.co.za/subscriber/account/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.vodacom.co.za/subscriber/account/types" xmlns:WL5G3N2="http://www.vodacom.co.za/header/types" xmlns:WL5G3N3="http://www.vodacom.co.za/subscriber/account/" xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.vodacom.co.za/subscriber/account/" xmlns:cns="http://www.vodacom.co.za/common/types" xmlns:hd="http://www.vodacom.co.za/header/types" xmlns:sns="http://www.vodacom.co.za/subscriber/account/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.vodacom.co.za/subscriber/account/types" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.vodacom.co.za/subscriber/account/types" schemaLocation="accountManagement.xsd"/>
+      <xsd:import namespace="http://www.vodacom.co.za/header/types" schemaLocation="optionalHeader.xsd"/>
+      <xsd:import namespace="http://www.vodacom.co.za/common/types" schemaLocation="common.xsd"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="QueryAllBalances">
+    <WL5G3N0:part element="WL5G3N1:AllBalancesQuery" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="QueryBalance">
+    <WL5G3N0:part element="WL5G3N1:BalanceQuery" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="QueryAllBalancesResponse">
+    <WL5G3N0:part element="WL5G3N1:AllBalancesQueryResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="QueryBalanceResponse">
+    <WL5G3N0:part element="WL5G3N1:BalanceQueryResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="QueryPromoBundleBalances">
+    <WL5G3N0:part element="WL5G3N1:PromoBundleBalancesQuery" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="QueryPromoBundleBalancesResponse">
+    <WL5G3N0:part element="WL5G3N1:PromoBundleBalancesQueryResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="PurchaseBundle">
+    <WL5G3N0:part element="WL5G3N1:PurchaseBundle" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="PurchaseBundleResponse">
+    <WL5G3N0:part element="WL5G3N1:PurchaseBundleResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="PurchasePromoBundle">
+    <WL5G3N0:part element="WL5G3N1:PurchasePromoBundle" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="PurchasePromoBundleResponse">
+    <WL5G3N0:part element="WL5G3N1:PurchasePromoBundleResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="MigrateBundlesToHearingImpaired">
+    <WL5G3N0:part element="WL5G3N1:MigrateBundlesToHearingImpaired" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="MigrateBundlesToHearingImpairedResponse">
+    <WL5G3N0:part element="WL5G3N1:MigrateBundlesToHearingImpairedResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SubscriberAccountManagementFault">
+    <WL5G3N0:part element="WL5G3N1:SubscriberAccountManagementFault" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="OptionalHeader">
+    <WL5G3N0:part element="WL5G3N2:Header" name="optionalHeader"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="SubscriberAccountManagement">
+    <WL5G3N0:operation name="QueryBalance">
+      <WL5G3N0:input message="WL5G3N3:QueryBalance"/>
+      <WL5G3N0:output message="WL5G3N3:QueryBalanceResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:SubscriberAccountManagementFault" name="SubscriberAccountManagementFault"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="QueryAllBalances">
+      <WL5G3N0:input message="WL5G3N3:QueryAllBalances"/>
+      <WL5G3N0:output message="WL5G3N3:QueryAllBalancesResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:SubscriberAccountManagementFault" name="SubscriberAccountManagementFault"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="PurchaseBundle">
+      <WL5G3N0:input message="WL5G3N3:PurchaseBundle"/>
+      <WL5G3N0:output message="WL5G3N3:PurchaseBundleResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:SubscriberAccountManagementFault" name="SubscriberAccountManagementFault"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="QueryPromoBundleBalances">
+      <WL5G3N0:input message="WL5G3N3:QueryPromoBundleBalances"/>
+      <WL5G3N0:output message="WL5G3N3:QueryPromoBundleBalancesResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:SubscriberAccountManagementFault" name="SubscriberAccountManagementFault"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="PurchasePromoBundle">
+      <WL5G3N0:input message="WL5G3N3:PurchasePromoBundle"/>
+      <WL5G3N0:output message="WL5G3N3:PurchasePromoBundleResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:SubscriberAccountManagementFault" name="SubscriberAccountManagementFault"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="MigrateBundlesToHearingImpaired">
+      <WL5G3N0:input message="WL5G3N3:MigrateBundlesToHearingImpaired"/>
+      <WL5G3N0:output message="WL5G3N3:MigrateBundlesToHearingImpairedResponse"/>
+      <WL5G3N0:fault message="WL5G3N3:SubscriberAccountManagementFault" name="SubscriberAccountManagementFault"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="SubscriberAccountManagementSOAP" type="WL5G3N3:SubscriberAccountManagement">
+    <WL5G3N4:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="QueryAllBalances">
+      <WL5G3N4:operation soapAction="www.vodacom.co.za/subscriber/account/management/QueryAllBalances"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SubscriberAccountManagementFault">
+        <WL5G3N4:fault name="SubscriberAccountManagementFault" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="QueryBalance">
+      <WL5G3N4:operation soapAction="www.vodacom.co.za/subscriber/account/management/QueryBundle"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SubscriberAccountManagementFault">
+        <WL5G3N4:fault name="SubscriberAccountManagementFault" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="PurchaseBundle">
+      <WL5G3N4:operation soapAction="http://www.vodacom.co.za/subscriber/account/management/PurchaseBundle"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SubscriberAccountManagementFault">
+        <WL5G3N4:fault name="SubscriberAccountManagementFault" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="QueryPromoBundleBalances">
+      <WL5G3N4:operation soapAction="http://www.vodacom.co.za/subscriber/account/management/QueryPromoBundleBalances"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SubscriberAccountManagementFault">
+        <WL5G3N4:fault name="SubscriberAccountManagementFault" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="PurchasePromoBundle">
+      <WL5G3N4:operation soapAction="http://www.vodacom.co.za/subscriber/account/management/PurchasePromoBundle"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SubscriberAccountManagementFault">
+        <WL5G3N4:fault name="SubscriberAccountManagementFault" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="MigrateBundlesToHearingImpaired">
+      <WL5G3N4:operation soapAction="http://www.vodacom.co.za/subscriber/account/management/MigrateBundlesToHearingImpaired"/>
+      <WL5G3N0:input>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N4:body use="literal"/>
+        <WL5G3N4:header message="WL5G3N3:OptionalHeader" part="optionalHeader" use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SubscriberAccountManagementFault">
+        <WL5G3N4:fault name="SubscriberAccountManagementFault" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="SubscriberAccountManagement">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N3:SubscriberAccountManagementSOAP" name="SubscriberAccountManagementSOAP">
+      <WL5G3N4:address location="http://fusion-test.vodacom.co.za:7003/api/v3/account/management"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

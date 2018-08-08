@@ -1,0 +1,20 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap-env:Header xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+		<hd:Header xmlns:hd="http://www.vodacom.co.za/header/types">
+			<hd:Timestamp>2018-04-17T09:43:23.964+02:00</hd:Timestamp>
+		</hd:Header>
+	</soap-env:Header>
+	<soap-env:Body xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+		<typ:BalanceQueryResponse
+			xmlns:typ="http://www.vodacom.co.za/subscriber/account/types">
+			<typ:BundleBalance>
+				<typ:BundleId>0</typ:BundleId>
+				<typ:BundleName>Airtime</typ:BundleName>
+				<typ:Description>Recharge Airtime</typ:Description>
+				<typ:Balance>0</typ:Balance>
+				<typ:BundleType>Airtime</typ:BundleType>
+				<typ:UoM>Cents</typ:UoM>
+			</typ:BundleBalance>
+		</typ:BalanceQueryResponse>
+	</soap-env:Body>
+</soapenv:Envelope>

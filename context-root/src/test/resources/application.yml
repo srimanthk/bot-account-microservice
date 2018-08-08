@@ -1,0 +1,14 @@
+csm:
+  client:
+    uri: http://localhost:9090/api/v3/account/management
+    stub-enabled: false
+ulff:
+   kafka:
+      topic: 
+          preprod.ulff
+      configuration:
+         bootstrap:
+             servers:
+                 localhost:9092
+   url-patterns: /*   
+   enabled: true
